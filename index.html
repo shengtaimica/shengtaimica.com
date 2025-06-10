@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平江盛泰云母制品有限公司 - 专业云母制品生产商</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+        }
+        
+        :root {
+            --primary: #0a4f7c;
+            --secondary: #1a7fbd;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            transition: all 0.3s;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .logo-text span {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .lang-switcher {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .lang-switcher i {
+            margin-right: 5px;
+        }
+        
+        .lang-switcher:hover {
+            background: var(--accent);
+        }
+        
+        /* 轮播图样式 */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .slides {
+            position: relative;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            margin-left: 10%;
+            border-radius: 5px;
+        }
+        
+        .slide-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+        }
+        
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .indicator.active {
+            background-color: white;
+        }
+        
+        /* 公司简介 */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* 产品中心样式 */
+        .products-section {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+        
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .product-category {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .product-category.active {
+            display: block;
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .category-header h3 {
+            font-size: 28px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .category-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #0a4f7c, #1a7fbd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-type {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .product-specs {
+            margin-bottom: 20px;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .spec-name {
+            font-weight: 600;
+            min-width: 120px;
+            color: var(--gray);
+        }
+        
+        .spec-value {
+            color: var(--dark);
+        }
+        
+        .product-applications {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .applications-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .applications-list {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .applications-list li {
+            margin-bottom: 5px;
+            margin-left: 20px;
+        }
+        
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tech-table th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .tech-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tech-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .tech-table tr:hover {
+            background: #f1f7fd;
+        }
+        
+        /* 公司优势 */
+        .advantages {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .advantage-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .advantage-card:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-10px);
+        }
+        
+        .advantage-card:hover .advantage-icon {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            transition: all 0.3s;
+        }
+        
+        .advantage-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* 新闻动态 */
+        .news {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        /* 行业对比 */
+        .comparison-section {
+            margin-top: 60px;
+            background: #eef5fd;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        .comparison-title {
+            text-align: center;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .company-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .company-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .company-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .company-name i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .company-specialty {
+            font-size: 15px;
+            color: var(--gray);
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+        
+        .company-products li {
+            margin-bottom: 8px;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        
+        .company-highlight {
+            background: #e6f7ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        /* 底部 */
+        footer {
+            background: var(--dark);
+            color: #eee;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .slide-content {
+                margin: 0 auto;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                height: 350px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .slide-content h2 {
+                font-size: 24px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .category-header h3 {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .slide-content h2 {
+                font-size: 20px;
+            }
+            
+            .slide-content p {
+                font-size: 14px;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-placeholder" style="width:60px;height:60px;background:linear-gradient(45deg,#0a4f7c,#1a7fbd);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                    <span style="color:white;font-weight:bold;font-size:20px;">盛泰</span>
+                </div>
+                <div class="logo-text">
+                    <h1 data-i18n="company_name">平江盛泰云母制品有限公司</h1>
+                    <span data-i18n="company_tagline">专业云母制品生产制造商</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-i18n="nav_home">首页</a></li>
+                    <li><a href="#about" data-i18n="nav_about">关于我们</a></li>
+                    <li><a href="#products" data-i18n="nav_products">产品中心</a></li>
+                    <li><a href="#advantages" data-i18n="nav_advantages">公司优势</a></li>
+                    <li><a href="#news" data-i18n="nav_news">新闻动态</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <button class="lang-switcher" id="langSwitch">
+                <i class="fas fa-globe"></i>
+                <span id="langText">EN</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 轮播图 -->
+    <section class="hero" id="home">
+        <div class="slides">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/about.jpg') ;">
+                <div class="slide-content">
+                    <h2 data-i18n="slide1_title">专业云母制品生产制造商</h2>
+                    <p data-i18n="slide1_desc">平江盛泰云母制品有限公司专注于高品质云母产品的研发、生产和销售，提供多种规格的云母板、云母带、云母纸等产品</p>
+                    <a href="#products" class="btn" data-i18n="view_products">查看产品</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/slide2title.jpg') ;">
+                <div class="slide-content">
+                    <h2 data-i18n="slide2_title">先进的生产设备与技术</h2>
+                    <p data-i18n="slide2_desc">拥有现代化生产基地，引进国际先进生产设备，结合创新技术，确保产品品质稳定可靠</p>
+                    <a href="#about" class="btn" data-i18n="learn_more">了解更多</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/slide3title.jpg') ;">
+                <div class="slide-content">
+                    <h2 data-i18n="slide3_title">定制化解决方案</h2>
+                    <p data-i18n="slide3_desc">根据客户需求提供定制化产品方案，广泛应用于电力、电子、冶金、化工等行业</p>
+                    <a href="#contact" class="btn" data-i18n="contact_us">联系我们</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="about_title">关于我们</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/about.jpg" alt="平江盛泰工厂">
+                </div>
+                <div class="about-text">
+                    <h3 data-i18n="company_name">平江盛泰云母制品有限公司</h3>
+                    <p data-i18n="about_desc1">平江盛泰云母制品有限公司成立于2005年，位于湖南省平江县高新技术产业开发区，是一家专业从事云母制品研发、生产和销售的高新技术企业。</p>
+                    <p data-i18n="about_desc2">公司拥有现代化生产基地，占地面积20000平方米，引进多条国内外先进生产线，具备年产云母板5000吨、云母带3000吨、云母纸2000吨的生产能力。</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="feature1_title">质量认证</h4>
+                                <p data-i18n="feature1_desc">通过ISO9001、ISO14001等体系认证，符合UL、FDA国际标准</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="feature2_title">研发实力</h4>
+                                <p data-i18n="feature2_desc">拥有专业研发团队，30+项专利技术，持续创新产品</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="feature3_title">全球市场</h4>
+                                <p data-i18n="feature3_desc">产品远销欧美、东南亚等30多个国家和地区</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="feature4_title">智能制造</h4>
+                                <p data-i18n="feature4_desc">引进先进自动化生产线，实现全流程质量控制</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="products_title">产品中心</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="product-categories">
+                <button class="category-btn active" data-category="plate" data-i18n="mica_plate">云母板</button>
+                <button class="category-btn" data-category="tape" data-i18n="mica_tape">云母带</button>
+                <button class="category-btn" data-category="paper" data-i18n="mica_paper">云母纸</button>
+                <button class="category-btn" data-category="tube" data-i18n="mica_tube">云母管</button>
+                <button class="category-btn" data-category="custom" data-i18n="custom_parts">云母异型件</button>
+            </div>
+            
+            <!-- 云母板产品 -->
+            <div class="product-category active" id="plate">
+                <div class="category-header">
+                    <h3 data-i18n="mica_plate_title">云母板系列</h3>
+                    <p data-i18n="mica_plate_desc">采用白云母纸或金云母纸为原料，高温高压压制而成，具有优良的绝缘性能和机械强度</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/baiyunmuban.jpeg')" data-i18n="hard_mica_plate_img">硬质白云母板</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="hard_mica">硬质云母板</div>
+                            <h3 class="product-title" data-i18n="hp5_board">HP-5硬质白云母板</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="temp_resistance">耐温等级:</span>
+                                    <span class="spec-value" data-i18n="hp5_temp">500℃持续 / 750℃间歇</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="dielectric">介电强度:</span>
+                                    <span class="spec-value">≥20 KV/mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度范围:</span>
+                                    <span class="spec-value">0.1-3.0 mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="color">外观:</span>
+                                    <span class="spec-value" data-i18n="silver_white">银白色</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_home">家用电器：电熨斗、微波炉、电暖器</li>
+                                    <li data-i18n="app_industry">冶金化工：工频炉、中频炉、电弧炉</li>
+                                    <li data-i18n="app_electronics">电子设备：加热元件、绝缘衬垫</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/jinyunmuban.jpg')" data-i18n="gold_mica_plate_img">硬质金云母板</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="hard_mica">硬质云母板</div>
+                            <h3 class="product-title" data-i18n="hp8_board">HP-8硬质金云母板</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="temp_resistance">耐温等级:</span>
+                                    <span class="spec-value" data-i18n="hp8_temp">750℃持续 / 1050℃间歇</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="dielectric">介电强度:</span>
+                                    <span class="spec-value">≥30 KV/mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度范围:</span>
+                                    <span class="spec-value">0.1-5.0 mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="color">外观:</span>
+                                    <span class="spec-value" data-i18n="golden">金色</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_high_temp">高温工业设备：炼钢炉、铁合金炉</li>
+                                    <li data-i18n="app_new_energy">新能源汽车电池热管理</li>
+                                    <li data-i18n="app_power">电力设备：变压器、发电机</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/haoyunmuban.jpg')" data-i18n="thick_mica_plate_img">超厚云母板</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="thick_mica">超厚云母板</div>
+                            <h3 class="product-title" data-i18n="t_series">R-5660-T系列</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="temp_resistance">耐温等级:</span>
+                                    <span class="spec-value">1000℃间歇</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度范围:</span>
+                                    <span class="spec-value">5-100 mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="strength">抗弯强度:</span>
+                                    <span class="spec-value">>200 N/mm²</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="processing">加工性能:</span>
+                                    <span class="spec-value" data-i18n="excellent">优异</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_chemical">化工机械：高温反应容器</li>
+                                    <li data-i18n="app_metallurgy">冶金电子：电弧炉、精炼炉</li>
+                                    <li data-i18n="app_transport">高速机车：绝缘组件</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="parameter">技术参数</th>
+                            <th data-i18n="hp5_board">HP-5白云母板</th>
+                            <th data-i18n="hp8_board">HP-8金云母板</th>
+                            <th data-i18n="t_series">R-5660-T系列</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="mica_content">云母含量</td>
+                            <td>≥90%</td>
+                            <td>≥92%</td>
+                            <td>≥90%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="adhesive_content">胶粘剂含量</td>
+                            <td>≤10%</td>
+                            <td>≤8%</td>
+                            <td>≤10%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="density">密度 (g/cm³)</td>
+                            <td>1.8-2.0</td>
+                            <td>1.8-2.45</td>
+                            <td>2.0-2.4</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="bending_strength">抗弯强度 (N/mm²)</td>
+                            <td>>150</td>
+                            <td>>200</td>
+                            <td>>200</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="water_absorption">吸水率</td>
+                            <td><1%</td>
+                            <td><1%</td>
+                            <td><1%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="flame_rating">阻燃等级</td>
+                            <td>UL94 V-0</td>
+                            <td>UL94 V-0</td>
+                            <td>UL94 V-0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- 云母带产品 -->
+            <div class="product-category" id="tape">
+                <div class="category-header">
+                    <h3 data-i18n="mica_tape_title">云母带系列</h3>
+                    <p data-i18n="mica_tape_desc">由云母纸与补强材料配以胶粘剂制成，具有良好机械性能和电气性能</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/baiyunmudai.jpg')" data-i18n="white_mica_tape_img">白云母带</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="mica_tape">云母带</div>
+                            <h3 class="product-title" data-i18n="yp5450">YP5450系列</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="base_material">基材:</span>
+                                    <span class="spec-value" data-i18n="white_mica">白云母纸</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="temp_resistance">耐温等级:</span>
+                                    <span class="spec-value">500-600℃</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度:</span>
+                                    <span class="spec-value">0.14±0.025mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="reinforcement">补强方式:</span>
+                                    <span class="spec-value" data-i18n="single_double">单面/双面</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_motor">高压电机绕组</li>
+                                    <li data-i18n="app_transformer">变压器绝缘</li>
+                                    <li data-i18n="app_cable">防火电缆绝缘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/jinyunmudai.jpg')" data-i18n="gold_mica_tape_img">金云母带</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="mica_tape">云母带</div>
+                            <h3 class="product-title" data-i18n="high_temp_tape">耐高温云母带</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="base_material">基材:</span>
+                                    <span class="spec-value" data-i18n="gold_mica">金云母纸</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="temp_resistance">耐温等级:</span>
+                                    <span class="spec-value">800℃</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度:</span>
+                                    <span class="spec-value">0.18±0.025mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="adhesive">胶粘剂:</span>
+                                    <span class="spec-value" data-i18n="silicone">有机硅树脂</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_rail">轨道交通绝缘系统</li>
+                                    <li data-i18n="app_battery">新能源电池模组防护</li>
+                                    <li data-i18n="app_high_voltage">高压电器设备</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 云母纸产品 -->
+            <div class="product-category" id="paper">
+                <div class="category-header">
+                    <h3 data-i18n="mica_paper_title">云母纸系列</h3>
+                    <p data-i18n="mica_paper_desc">采用优质云母鳞片为原料，经特殊工艺制成，具有优异的电气绝缘性能</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/yumuzhi.jpeg')"  data-i18n="white_mica_paper_img">白云母纸</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="mica_paper">云母纸</div>
+                            <h3 class="product-title" data-i18n="white_paper">白云母纸</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="thickness">厚度:</span>
+                                    <span class="spec-value">0.05-0.5mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="density">密度:</span>
+                                    <span class="spec-value">1.8-2.2 g/cm³</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="dielectric">介电强度:</span>
+                                    <span class="spec-value">≥18 KV/mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="moisture">水分含量:</span>
+                                    <span class="spec-value">≤3%</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_base">云母板/带基材</li>
+                                    <li data-i18n="app_insulation">高温绝缘衬垫</li>
+                                    <li data-i18n="app_fireproof">防火屏障材料</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 云母管产品 -->
+            <div class="product-category" id="tube">
+                <div class="category-header">
+                    <h3 data-i18n="mica_tube_title">云母管系列</h3>
+                    <p data-i18n="mica_tube_desc">经卷制加工而成的硬质管状绝缘材料，具有较高的机械强度</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/yunmuguan2.jpg')" data-i18n="shellac_tube_img">虫胶云母管</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="mica_tube">云母管</div>
+                            <h3 class="product-title">5931系列</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="heat_class">耐热等级:</span>
+                                    <span class="spec-value">B级</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="dielectric">介电强度:</span>
+                                    <span class="spec-value">≥10 KV/mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="inner_dia">内径尺寸:</span>
+                                    <span class="spec-value">Φ6-300mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="length">长度:</span>
+                                    <span class="spec-value">300-500mm</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_electrode">电机电器电极绝缘</li>
+                                    <li data-i18n="app_bushing">出线套管绝缘</li>
+                                    <li data-i18n="app_heater">电热管绝缘套</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/yunmuguan1.jpg')"  data-i18n="epoxy_tube_img">环氧云母管</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="mica_tube">云母管</div>
+                            <h3 class="product-title">5934-1系列</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="heat_class">耐热等级:</span>
+                                    <span class="spec-value">B级</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="pressure">耐压等级:</span>
+                                    <span class="spec-value">>30KV</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="material">材料:</span>
+                                    <span class="spec-value" data-i18n="epoxy">环氧树脂</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="feature">特点:</span>
+                                    <span class="spec-value" data-i18n="low_smoke">低发烟、耐电弧</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_metallurgy">冶金设备线缆防护</li>
+                                    <li data-i18n="app_power">电力设备绝缘</li>
+                                    <li data-i18n="app_industrial">工业电炉组件</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 云母异型件产品 -->
+            <div class="product-category" id="custom">
+                <div class="category-header">
+                    <h3 data-i18n="custom_parts_title">云母异型件</h3>
+                    <p data-i18n="custom_parts_desc">根据客户图纸要求加工成不同形状的绝缘异型件，耐高温800℃以上</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('images/yixingjian.jpg')"  data-i18n="cnc_parts_img">CNC加工件</div>
+                        <div class="product-info">
+                            <div class="product-type" data-i18n="custom_parts">云母异型件</div>
+                            <h3 class="product-title" data-i18n="cnc_machining">CNC加工异型件</h3>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="tolerance">加工公差:</span>
+                                    <span class="spec-value">±0.1mm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="material">基材:</span>
+                                    <span class="spec-value" data-i18n="hp5_hp8">HP-5/HP-8云母板</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="process">加工工艺:</span>
+                                    <span class="spec-value" data-i18n="cnc_milling">CNC雕刻、冲压成型</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name" data-i18n="max_size">最大尺寸:</span>
+                                    <span class="spec-value">1000×2400mm</span>
+                                </div>
+                            </div>
+                            <div class="product-applications">
+                                <div class="applications-title" data-i18n="applications">应用领域</div>
+                                <ul class="applications-list">
+                                    <li data-i18n="app_furnace">电弧炉观察窗衬板</li>
+                                    <li data-i18n="app_ev">新能源汽车电池模组绝缘垫片</li>
+                                    <li data-i18n="app_electrical">电器设备绝缘组件</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司优势 -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="advantages_title">公司优势</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="advantage-container">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="advantage-title" data-i18n="advantage1_title">品质保证</h3>
+                    <p data-i18n="advantage1_desc">通过ISO9001质量管理体系认证，产品符合国际标准，品质稳定可靠</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="advantage-title" data-i18n="advantage2_title">技术研发</h3>
+                    <p data-i18n="advantage2_desc">拥有专业研发团队，持续创新，掌握核心生产技术</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="advantage-title" data-i18n="advantage3_title">先进设备</h3>
+                    <p data-i18n="advantage3_desc">引进国际先进生产设备，自动化程度高，生产效率高</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="advantage-title" data-i18n="advantage4_title">全球市场</h3>
+                    <p data-i18n="advantage4_desc">产品远销30多个国家和地区，服务全球客户</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态 -->
+    <section class="news" id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="news_title">新闻动态</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img">
+                        
+						<img src="images/gongsixinwen.jpg" alt="公司新闻">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-07-15</div>
+                        <h3 class="news-title" data-i18n="news1_title">公司成功通过ISO9001质量管理体系认证</h3>
+                        <p class="news-excerpt" data-i18n="news1_desc">近日，平江盛泰云母制品有限公司成功通过ISO9001:2015质量管理体系认证，标志着公司质量管理迈上新台阶。</p>
+                        <a href="#" class="btn btn-outline" data-i18n="read_more">阅读更多</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="images/gongsiyantaohui.jpg" alt="行业新闻">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-06-28</div>
+                        <h3 class="news-title" data-i18n="news2_title">云母制品在新能源领域的应用前景研讨会</h3>
+                        <p class="news-excerpt" data-i18n="news2_desc">公司参加全国云母制品行业研讨会，与同行探讨云母材料在新能源汽车、光伏等新能源领域的应用前景。</p>
+                        <a href="#" class="btn btn-outline" data-i18n="read_more">阅读更多</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="images/fuhecailiao.jpg" alt="产品新闻">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-05-10</div>
+                        <h3 class="news-title" data-i18n="news3_title">公司成功研发新型耐高温云母复合材料</h3>
+                        <p class="news-excerpt" data-i18n="news3_desc">经过两年技术攻关，公司研发团队成功开发出新型耐高温云母复合材料，耐温等级达到1000℃以上。</p>
+                        <a href="#" class="btn btn-outline" data-i18n="read_more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_about">关于我们</h3>
+                    <p data-i18n="footer_about_desc">平江盛泰云母制品有限公司是一家专业从事云母制品研发、生产和销售的高新技术企业，致力于为客户提供高品质的云母绝缘材料和解决方案。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_products">产品中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="mica_plate">云母板</a></li>
+                        <li><a href="#" data-i18n="mica_tape">云母带</a></li>
+                        <li><a href="#" data-i18n="mica_paper">云母纸</a></li>
+                        <li><a href="#" data-i18n="mica_tube">云母管</a></li>
+                        <li><a href="#" data-i18n="custom_parts">云母异型件</a></li>
+                        <li><a href="#" data-i18n="composite">云母复合材料</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_contact">联系方式</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="address">湖南省平江县高新技术产业开发区云母工业园</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+86 19025284880</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>zhouchen020@sina.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span data-i18n="working_hours">周一至周五: 8:00 - 17:30</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_newsletter">关注我们</h3>
+                    <p data-i18n="footer_newsletter_desc">订阅我们的新闻通讯，获取最新产品信息和行业动态</p>
+                    <form>
+                        <input type="email" placeholder="输入您的邮箱" style="width:100%;padding:10px;margin-bottom:10px;border-radius:4px;border:none;">
+                        <button type="submit" class="btn" data-i18n="subscribe">订阅</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2023 <span data-i18n="company_name">平江盛泰云母制品有限公司</span> <span data-i18n="copyright">版权所有</span> <span data-i18n="icp">湘ICP备XXXXXX号</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 多语言数据
+        const i18nData = {
+            zh: {
+                company_name: "平江盛泰云母制品有限公司",
+                company_tagline: "专业云母制品生产制造商",
+                nav_home: "首页",
+                nav_about: "关于我们",
+                nav_products: "产品中心",
+                nav_advantages: "公司优势",
+                nav_news: "新闻动态",
+                nav_contact: "联系我们",
+                slide1_title: "专业云母制品生产制造商",
+                slide1_desc: "平江盛泰云母制品有限公司专注于高品质云母产品的研发、生产和销售，提供多种规格的云母板、云母带、云母纸等产品",
+                slide2_title: "先进的生产设备与技术",
+                slide2_desc: "拥有现代化生产基地，引进国际先进生产设备，结合创新技术，确保产品品质稳定可靠",
+                slide3_title: "定制化解决方案",
+                slide3_desc: "根据客户需求提供定制化产品方案，广泛应用于电力、电子、冶金、化工等行业",
+                view_products: "查看产品",
+                learn_more: "了解更多",
+                contact_us: "联系我们",
+                about_title: "关于我们",
+                about_desc1: "平江盛泰云母制品有限公司成立于2005年，位于湖南省平江县高新技术产业开发区，是一家专业从事云母制品研发、生产和销售的高新技术企业。",
+                about_desc2: "公司拥有现代化生产基地，占地面积20000平方米，引进多条国内外先进生产线，具备年产云母板5000吨、云母带3000吨、云母纸2000吨的生产能力。",
+                feature1_title: "质量认证",
+                feature1_desc: "通过ISO9001、ISO14001等体系认证，符合UL、FDA国际标准",
+                feature2_title: "研发实力",
+                feature2_desc: "拥有专业研发团队，30+项专利技术，持续创新产品",
+                feature3_title: "全球市场",
+                feature3_desc: "产品远销欧美、东南亚等30多个国家和地区",
+                feature4_title: "智能制造",
+                feature4_desc: "引进先进自动化生产线，实现全流程质量控制",
+                products_title: "产品中心",
+                mica_plate: "云母板",
+                mica_tape: "云母带",
+                mica_paper: "云母纸",
+                mica_tube: "云母管",
+                custom_parts: "云母异型件",
+                composite: "云母复合材料",
+                mica_plate_title: "云母板系列",
+                mica_plate_desc: "采用白云母纸或金云母纸为原料，高温高压压制而成，具有优良的绝缘性能和机械强度",
+                hard_mica_plate_img: "硬质白云母板",
+                hard_mica: "硬质云母板",
+                hp5_board: "HP-5硬质白云母板",
+                temp_resistance: "耐温等级:",
+                hp5_temp: "500℃持续 / 750℃间歇",
+                dielectric: "介电强度:",
+                thickness: "厚度范围:",
+                color: "外观:",
+                silver_white: "银白色",
+                applications: "应用领域",
+                app_home: "家用电器：电熨斗、微波炉、电暖器",
+                app_industry: "冶金化工：工频炉、中频炉、电弧炉",
+                app_electronics: "电子设备：加热元件、绝缘衬垫",
+                gold_mica_plate_img: "硬质金云母板",
+                hp8_board: "HP-8硬质金云母板",
+                hp8_temp: "750℃持续 / 1050℃间歇",
+                golden: "金色",
+                app_high_temp: "高温工业设备：炼钢炉、铁合金炉",
+                app_new_energy: "新能源汽车电池热管理",
+                app_power: "电力设备：变压器、发电机",
+                thick_mica_plate_img: "超厚云母板",
+                thick_mica: "超厚云母板",
+                t_series: "R-5660-T系列",
+                strength: "抗弯强度:",
+                processing: "加工性能:",
+                excellent: "优异",
+                app_chemical: "化工机械：高温反应容器",
+                app_metallurgy: "冶金电子：电弧炉、精炼炉",
+                app_transport: "高速机车：绝缘组件",
+                parameter: "技术参数",
+                mica_content: "云母含量",
+                adhesive_content: "胶粘剂含量",
+                density: "密度 (g/cm³)",
+                bending_strength: "抗弯强度 (N/mm²)",
+                water_absorption: "吸水率",
+                flame_rating: "阻燃等级",
+                mica_tape_title: "云母带系列",
+                mica_tape_desc: "由云母纸与补强材料配以胶粘剂制成，具有良好机械性能和电气性能",
+                white_mica_tape_img: "白云母带",
+                yp5450: "YP5450系列",
+                base_material: "基材:",
+                white_mica: "白云母纸",
+                reinforcement: "补强方式:",
+                single_double: "单面/双面",
+                app_motor: "高压电机绕组",
+                app_transformer: "变压器绝缘",
+                app_cable: "防火电缆绝缘",
+                gold_mica_tape_img: "金云母带",
+                high_temp_tape: "耐高温云母带",
+                gold_mica: "金云母纸",
+                adhesive: "胶粘剂:",
+                silicone: "有机硅树脂",
+                app_rail: "轨道交通绝缘系统",
+                app_battery: "新能源电池模组防护",
+                app_high_voltage: "高压电器设备",
+                mica_paper_title: "云母纸系列",
+                mica_paper_desc: "采用优质云母鳞片为原料，经特殊工艺制成，具有优异的电气绝缘性能",
+                white_mica_paper_img: "白云母纸",
+                white_paper: "白云母纸",
+                moisture: "水分含量:",
+                app_base: "云母板/带基材",
+                app_insulation: "高温绝缘衬垫",
+                app_fireproof: "防火屏障材料",
+                mica_tube_title: "云母管系列",
+                mica_tube_desc: "经卷制加工而成的硬质管状绝缘材料，具有较高的机械强度",
+                shellac_tube_img: "虫胶云母管",
+                heat_class: "耐热等级:",
+                inner_dia: "内径尺寸:",
+                length: "长度:",
+                app_electrode: "电机电器电极绝缘",
+                app_bushing: "出线套管绝缘",
+                app_heater: "电热管绝缘套",
+                epoxy_tube_img: "环氧云母管",
+                pressure: "耐压等级:",
+                material: "材料:",
+                epoxy: "环氧树脂",
+                feature: "特点:",
+                low_smoke: "低发烟、耐电弧",
+                app_industrial: "工业电炉组件",
+                custom_parts_title: "云母异型件",
+                custom_parts_desc: "根据客户图纸要求加工成不同形状的绝缘异型件，耐高温800℃以上",
+                cnc_parts_img: "CNC加工件",
+                cnc_machining: "CNC加工异型件",
+                tolerance: "加工公差:",
+                hp5_hp8: "HP-5/HP-8云母板",
+                process: "加工工艺:",
+                cnc_milling: "CNC雕刻、冲压成型",
+                max_size: "最大尺寸:",
+                app_furnace: "电弧炉观察窗衬板",
+                app_ev: "新能源汽车电池模组绝缘垫片",
+                app_electrical: "电器设备绝缘组件",
+                industry_comparison: "行业标杆企业对比",
+                rongtai: "浙江荣泰",
+                rongtai_specialty: "新能源汽车防火安全件专家，全球云母制品市场领导者之一",
+                rongtai_product1: "R-5660系列云母板",
+                rongtai_product2: "超厚云母板(5-100mm)",
+                rongtai_product3: "IATF 16949认证产品",
+                rongtai_product4: "新能源汽车热失控管理解决方案",
+                rongtai_highlight_title: "核心优势：",
+                rongtai_highlight_desc: "通过ISO9001、ISO14001、IATF16949等多项认证，产品远销全球",
+                pingshi: "平世电工",
+                pingshi_specialty: "冶金级耐高温解决方案，专注于云母绝缘材料生产",
+                pingshi_product1: "HP-8金云母异型件",
+                pingshi_product2: "1050℃间歇耐温产品",
+                pingshi_product3: "电弧炉专用绝缘组件",
+                pingshi_product4: "耐高温非石棉密封材料",
+                pingshi_highlight_title: "核心优势：",
+                pingshi_highlight_desc: "产品具有优异的机械性能和耐高温性能，可替代石棉等传统材料",
+                yuefeng: "平江岳峰云母",
+                yuefeng_specialty: "云母材料创新技术研发，大型云母绝缘材料生产厂家",
+                yuefeng_product1: "低水分云母纸(≤3%)",
+                yuefeng_product2: "机械强度检测技术",
+                yuefeng_product3: "环保型云母制品",
+                yuefeng_product4: "云母发热膜系列",
+                yuefeng_highlight_title: "核心优势：",
+                yuefeng_highlight_desc: "年产云母制品2万吨，产值6.54亿元，建立云母制品研发中心",
+                advantages_title: "公司优势",
+                advantage1_title: "品质保证",
+                advantage1_desc: "通过ISO9001质量管理体系认证，产品符合国际标准，品质稳定可靠",
+                advantage2_title: "技术研发",
+                advantage2_desc: "拥有专业研发团队，持续创新，掌握核心生产技术",
+                advantage3_title: "先进设备",
+                advantage3_desc: "引进国际先进生产设备，自动化程度高，生产效率高",
+                advantage4_title: "全球市场",
+                advantage4_desc: "产品远销30多个国家和地区，服务全球客户",
+                news_title: "新闻动态",
+                news1_title: "公司成功通过ISO9001质量管理体系认证",
+                news1_desc: "近日，平江盛泰云母制品有限公司成功通过ISO9001:2015质量管理体系认证，标志着公司质量管理迈上新台阶。",
+                news2_title: "云母制品在新能源领域的应用前景研讨会",
+                news2_desc: "公司参加全国云母制品行业研讨会，与同行探讨云母材料在新能源汽车、光伏等新能源领域的应用前景。",
+                news3_title: "公司成功研发新型耐高温云母复合材料",
+                news3_desc: "经过两年技术攻关，公司研发团队成功开发出新型耐高温云母复合材料，耐温等级达到1000℃以上。",
+                read_more: "阅读更多",
+                footer_about: "关于我们",
+                footer_about_desc: "平江盛泰云母制品有限公司是一家专业从事云母制品研发、生产和销售的高新技术企业，致力于为客户提供高品质的云母绝缘材料和解决方案。",
+                footer_products: "产品中心",
+                footer_contact: "联系方式",
+                address: "湖南省平江县高新技术产业开发区云母工业园",
+                working_hours: "周一至周五: 8:00 - 17:30",
+                footer_newsletter: "关注我们",
+                footer_newsletter_desc: "订阅我们的新闻通讯，获取最新产品信息和行业动态",
+                subscribe: "订阅",
+                copyright: "版权所有",
+                icp: "湘ICP备XXXXXX号"
+            },
+            en: {
+                company_name: "Pingjiang Shengtai Mica Products Co., Ltd.",
+                company_tagline: "Professional Mica Products Manufacturer",
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_products: "Products",
+                nav_advantages: "Advantages",
+                nav_news: "News",
+                nav_contact: "Contact Us",
+                slide1_title: "Professional Mica Products Manufacturer",
+                slide1_desc: "Pingjiang Shengtai Mica Products Co., Ltd. specializes in R&D, production and sales of high-quality mica products, providing various specifications of mica plates, mica tapes, mica paper, etc.",
+                slide2_title: "Advanced Production Equipment and Technology",
+                slide2_desc: "With modern production base, introducing international advanced production equipment and innovative technology to ensure stable and reliable product quality.",
+                slide3_title: "Customized Solutions",
+                slide3_desc: "Provide customized product solutions according to customer needs, widely used in power, electronics, metallurgy, chemical and other industries.",
+                view_products: "View Products",
+                learn_more: "Learn More",
+                contact_us: "Contact Us",
+                about_title: "About Us",
+                about_desc1: "Pingjiang Shengtai Mica Products Co., Ltd. was established in 2005, located in Pingjiang High-tech Industrial Development Zone, Hunan Province. We are a high-tech enterprise specializing in R&D, production and sales of mica products.",
+                about_desc2: "The company has a modern production base covering an area of 20,000 square meters, introducing multiple advanced production lines at home and abroad, with an annual production capacity of 5,000 tons of mica plates, 3,000 tons of mica tapes and 2,000 tons of mica paper.",
+                feature1_title: "Quality Certification",
+                feature1_desc: "Passed ISO9001, ISO14001 and other system certifications, compliant with UL, FDA international standards",
+                feature2_title: "R&D Capability",
+                feature2_desc: "Professional R&D team with 30+ patented technologies, continuously innovating products",
+                feature3_title: "Global Market",
+                feature3_desc: "Products exported to more than 30 countries and regions in Europe, America, Southeast Asia, etc.",
+                feature4_title: "Intelligent Manufacturing",
+                feature4_desc: "Introduce advanced automated production lines to achieve full-process quality control",
+                products_title: "Products Center",
+                mica_plate: "Mica Plate",
+                mica_tape: "Mica Tape",
+                mica_paper: "Mica Paper",
+                mica_tube: "Mica Tube",
+                custom_parts: "Custom Mica Parts",
+                composite: "Mica Composite",
+                mica_plate_title: "Mica Plate Series",
+                mica_plate_desc: "Made from white mica paper or gold mica paper, pressed under high temperature and pressure, with excellent insulation and mechanical strength",
+                hard_mica_plate_img: "Hard White Mica Plate",
+                hard_mica: "Hard Mica Plate",
+                hp5_board: "HP-5 Hard White Mica Plate",
+                temp_resistance: "Temp Resistance:",
+                hp5_temp: "500℃ Continuous / 750℃ Intermittent",
+                dielectric: "Dielectric Strength:",
+                thickness: "Thickness Range:",
+                color: "Appearance:",
+                silver_white: "Silver White",
+                applications: "Applications",
+                app_home: "Home Appliances: Iron, Microwave, Heater",
+                app_industry: "Metallurgy: Industrial Furnaces",
+                app_electronics: "Electronics: Heating Elements, Insulation",
+                gold_mica_plate_img: "Hard Gold Mica Plate",
+                hp8_board: "HP-8 Hard Gold Mica Plate",
+                hp8_temp: "750℃ Continuous / 1050℃ Intermittent",
+                golden: "Golden",
+                app_high_temp: "High-Temp Equipment: Steel Furnaces",
+                app_new_energy: "New Energy Vehicle Battery Thermal Management",
+                app_power: "Power Equipment: Transformers, Generators",
+                thick_mica_plate_img: "Thick Mica Plate",
+                thick_mica: "Thick Mica Plate",
+                t_series: "R-5660-T Series",
+                strength: "Bending Strength:",
+                processing: "Processing:",
+                excellent: "Excellent",
+                app_chemical: "Chemical Machinery: High-Temp Reactors",
+                app_metallurgy: "Metallurgy: Arc Furnaces, Refining Furnaces",
+                app_transport: "High-Speed Trains: Insulation Components",
+                parameter: "Technical Parameters",
+                mica_content: "Mica Content",
+                adhesive_content: "Adhesive Content",
+                density: "Density (g/cm³)",
+                bending_strength: "Bending Strength (N/mm²)",
+                water_absorption: "Water Absorption",
+                flame_rating: "Flame Rating",
+                mica_tape_title: "Mica Tape Series",
+                mica_tape_desc: "Made from mica paper with reinforcement materials and adhesive, with good mechanical and electrical properties",
+                white_mica_tape_img: "White Mica Tape",
+                yp5450: "YP5450 Series",
+                base_material: "Base Material:",
+                white_mica: "White Mica Paper",
+                reinforcement: "Reinforcement:",
+                single_double: "Single/Double Sided",
+                app_motor: "HV Motor Windings",
+                app_transformer: "Transformer Insulation",
+                app_cable: "Fireproof Cable Insulation",
+                gold_mica_tape_img: "Gold Mica Tape",
+                high_temp_tape: "High-Temp Mica Tape",
+                gold_mica: "Gold Mica Paper",
+                adhesive: "Adhesive:",
+                silicone: "Silicone Resin",
+                app_rail: "Rail Transit Insulation",
+                app_battery: "New Energy Battery Module Protection",
+                app_high_voltage: "HV Electrical Equipment",
+                mica_paper_title: "Mica Paper Series",
+                mica_paper_desc: "Made from high-quality mica scales, with excellent electrical insulation properties",
+                white_mica_paper_img: "White Mica Paper",
+                white_paper: "White Mica Paper",
+                moisture: "Moisture Content:",
+                app_base: "Base Material for Mica Plates/Tapes",
+                app_insulation: "High-Temp Insulation Pads",
+                app_fireproof: "Fire Barrier Materials",
+                mica_tube_title: "Mica Tube Series",
+                mica_tube_desc: "Hard tubular insulation material with high mechanical strength",
+                shellac_tube_img: "Shellac Mica Tube",
+                heat_class: "Heat Class:",
+                inner_dia: "Inner Diameter:",
+                length: "Length:",
+                app_electrode: "Motor Electrode Insulation",
+                app_bushing: "Bushing Insulation",
+                app_heater: "Heating Tube Insulation",
+                epoxy_tube_img: "Epoxy Mica Tube",
+                pressure: "Voltage Resistance:",
+                material: "Material:",
+                epoxy: "Epoxy Resin",
+                feature: "Feature:",
+                low_smoke: "Low Smoke, Arc Resistance",
+                app_industrial: "Industrial Furnace Components",
+                custom_parts_title: "Custom Mica Parts",
+                custom_parts_desc: "Custom-shaped insulation parts according to drawings, heat-resistant above 800℃",
+                cnc_parts_img: "CNC Machined Parts",
+                cnc_machining: "CNC Machined Parts",
+                tolerance: "Tolerance:",
+                hp5_hp8: "HP-5/HP-8 Mica Board",
+                process: "Processing:",
+                cnc_milling: "CNC Engraving, Stamping",
+                max_size: "Max Size:",
+                app_furnace: "Arc Furnace Viewing Window",
+                app_ev: "EV Battery Module Insulation",
+                app_electrical: "Electrical Equipment Components",
+                industry_comparison: "Industry Benchmark Comparison",
+                rongtai: "Zhejiang Rongtai",
+                rongtai_specialty: "New Energy Vehicle Fire Safety Expert, Global Mica Products Market Leader",
+                rongtai_product1: "R-5660 Mica Plate Series",
+                rongtai_product2: "Thick Mica Plates (5-100mm)",
+                rongtai_product3: "IATF 16949 Certified Products",
+                rongtai_product4: "New Energy Vehicle Thermal Runaway Management Solution",
+                rongtai_highlight_title: "Core Advantage:",
+                rongtai_highlight_desc: "Passed ISO9001, ISO14001, IATF16949 and other certifications, products sold worldwide",
+                pingshi: "Pingshi Electric",
+                pingshi_specialty: "Metallurgical High-Temp Solutions, Focused on Mica Insulation Materials Production",
+                pingshi_product1: "HP-8 Custom Gold Mica Parts",
+                pingshi_product2: "1050℃ Intermittent Temp Resistance Products",
+                pingshi_product3: "Arc Furnace Insulation Components",
+                pingshi_product4: "High-Temp Asbestos-Free Sealing Materials",
+                pingshi_highlight_title: "Core Advantage:",
+                pingshi_highlight_desc: "Products have excellent mechanical properties and high temperature resistance, can replace traditional materials such as asbestos",
+                yuefeng: "Pingjiang Yuefeng Mica",
+                yuefeng_specialty: "Mica Material Innovation R&D, Large Mica Insulation Material Manufacturer",
+                yuefeng_product1: "Low-Moisture Mica Paper (≤3%)",
+                yuefeng_product2: "Mechanical Strength Testing Technology",
+                yuefeng_product3: "Eco-Friendly Mica Products",
+                yuefeng_product4: "Mica Heating Film Series",
+                yuefeng_highlight_title: "Core Advantage:",
+                yuefeng_highlight_desc: "Annual production of 20,000 tons of mica products, output value of 654 million yuan, established mica products R&D center",
+                advantages_title: "Company Advantages",
+                advantage1_title: "Quality Assurance",
+                advantage1_desc: "Passed ISO9001 quality management system certification, products comply with international standards, stable and reliable quality",
+                advantage2_title: "Technology R&D",
+                advantage2_desc: "Professional R&D team, continuous innovation, mastering core production technology",
+                advantage3_title: "Advanced Equipment",
+                advantage3_desc: "Introduce international advanced production equipment, high degree of automation, high production efficiency",
+                advantage4_title: "Global Market",
+                advantage4_desc: "Products exported to more than 30 countries and regions, serving global customers",
+                news_title: "News",
+                news1_title: "Company Successfully Passed ISO9001 Quality Management System Certification",
+                news1_desc: "Recently, Pingjiang Shengtai Mica Products Co., Ltd. successfully passed the ISO9001:2015 quality management system certification, marking a new level of quality management for the company.",
+                news2_title: "Seminar on Application Prospects of Mica Products in New Energy Field",
+                news3_desc: "The company participated in the national mica products industry seminar, discussing with peers the application prospects of mica materials in new energy fields such as new energy vehicles and photovoltaics.",
+                news3_title: "Company Successfully Developed New High-Temperature Resistant Mica Composite Material",
+                news3_desc: "After two years of technical research, the company's R&D team successfully developed a new high-temperature resistant mica composite material with a temperature resistance rating of over 1000°C.",
+                read_more: "Read More",
+                footer_about: "About Us",
+                footer_about_desc: "Pingjiang Shengtai Mica Products Co., Ltd. is a high-tech enterprise specializing in R&D, production and sales of mica products, committed to providing customers with high-quality mica insulation materials and solutions.",
+                footer_products: "Products",
+                footer_contact: "Contact Us",
+                address: "No. 88, Mica Industrial Park, High-tech Industrial Development Zone, Pingjiang County, Hunan Province",
+                working_hours: "Monday to Friday: 8:00 - 17:30",
+                footer_newsletter: "Follow Us",
+                footer_newsletter_desc: "Subscribe to our newsletter for the latest product information and industry trends",
+                subscribe: "Subscribe",
+                copyright: "All Rights Reserved",
+                icp: "Xiang ICP No. XXXXXX"
+            }
+        };
+
+        // 当前语言状态
+        let currentLang = 'zh';
+        const langSwitch = document.getElementById('langSwitch');
+        const langText = document.getElementById('langText');
+
+        // 切换语言函数
+        function switchLanguage(lang) {
+            currentLang = lang;
+            langText.textContent = lang === 'zh' ? 'EN' : '中文';
+            
+            // 更新所有带data-i18n属性的元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (i18nData[lang][key]) {
+                    element.textContent = i18nData[lang][key];
+                }
+            });
+        }
+
+        // 语言切换按钮事件
+        langSwitch.addEventListener('click', () => {
+            const newLang = currentLang === 'zh' ? 'en' : 'zh';
+            switchLanguage(newLang);
+        });
+
+        // 轮播图功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const slideCount = slides.length;
+        
+        function showSlide(index) {
+            // 隐藏所有幻灯片
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // 显示当前幻灯片
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        // 指示器点击事件
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // 自动轮播
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            showSlide(currentSlide);
+        }, 5000);
+        
+        // 产品筛选功能
+        const filterBtns = document.querySelectorAll('.category-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                
+                // 更新按钮状态
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // 显示对应分类
+                document.querySelectorAll('.product-category').forEach(cat => {
+                    cat.classList.remove('active');
+                    if (cat.id === category) {
+                        setTimeout(() => cat.classList.add('active'), 10);
+                    }
+                });
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
